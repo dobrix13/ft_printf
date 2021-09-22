@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_vprint.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avitolin <avitolin@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/15 17:43:14 by avitolin          #+#    #+#             */
-/*   Updated: 2021/09/22 13:17:02 by avitolin         ###   ########.fr       */
+/*   Created: 2021/09/15 18:31:32 by avitolin          #+#    #+#             */
+/*   Updated: 2021/09/22 13:14:07 by avitolin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *format, ...)
+int	ft_vprintf(const char *format, va_list ap)
 {
-	va_list	ap;
-	int		len;
+	t_format	*tmp;
+	int			len;
 
-	if (format == NULL)
-		return (-1);
-	t_start(ap, format);
-	len = ft_vprintf(format, ap);
-	t_end(ap);
+	tmp = ft_initialize_format(format, ap);
+	if (!tmp)
+		return (0);
+	while (tmp->format[tmp->i])
+	{
+		if (tmp->format[tmp->i] == '%')
+			ft_placeholder(tmp);
+		else
+			tmp->len += write(1, &tmp->format[tmp->i++], 1);
+	}	
+	len = tmp->len;
+	free(tmp);
 	return (len);
 }

@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_placeholder.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avitolin <avitolin@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/15 17:43:14 by avitolin          #+#    #+#             */
-/*   Updated: 2021/09/22 13:17:02 by avitolin         ###   ########.fr       */
+/*   Created: 2021/09/22 12:42:17 by avitolin          #+#    #+#             */
+/*   Updated: 2021/09/22 13:14:03 by avitolin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
 
-int	ft_printf(const char *format, ...)
+
+
+void	ft_placeholder(t_format *tmp)
 {
-	va_list	ap;
-	int		len;
+	t_holder	*holder;
 
-	if (format == NULL)
-		return (-1);
-	t_start(ap, format);
-	len = ft_vprintf(format, ap);
-	t_end(ap);
-	return (len);
+	tmp->i++;
+	holder = ft_initialize_holder();
+	ft_parse(tmp, holder);
+	if (holder->conversion)
+	{
+		ft_type_conversion(tmp, holder);
+		tmp->len += write(1, holder->argument, holder->len);
+		free(holder->argument);
+	}
+	free(holder->prefix);
+	free(holder);
 }

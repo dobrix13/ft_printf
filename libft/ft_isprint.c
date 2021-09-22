@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_placeholder.c                                   :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avitolin <avitolin@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/22 12:42:17 by avitolin          #+#    #+#             */
-/*   Updated: 2021/09/22 13:30:55 by avitolin         ###   ########.fr       */
+/*   Created: 2021/05/22 01:45:31 by avitolin          #+#    #+#             */
+/*   Updated: 2021/06/02 20:14:39 by avitolin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+/*
+**	checks for any printable character including space.
+*/
+#include "libft.h"
 
-
-void	ft_placeholder(t_format *tmp)
+int	ft_isprint(int c)
 {
-	t_holder	*holder;
-
-	tmp->i++;
-	holder = ft_initialize_holder();
-	ft_parse(tmp, holder);
-	if (holder->conversion)
-	{
-		ft_type_conversion(tmp, holder);
-		tmp->len += write(1, holder->argument, holder->len);
-		free(holder->argument);
-	}
-	free(holder->prefix);
-	free(holder);
+	if (c < 32 || c > 126)
+		return (0);
+	else
+		return (16384);
 }

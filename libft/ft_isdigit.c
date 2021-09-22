@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_placeholder.c                                   :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avitolin <avitolin@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/22 12:42:17 by avitolin          #+#    #+#             */
-/*   Updated: 2021/09/22 13:30:55 by avitolin         ###   ########.fr       */
+/*   Created: 2021/05/22 01:03:55 by avitolin          #+#    #+#             */
+/*   Updated: 2021/06/01 09:50:10 by avitolin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+/*	checks for a digit (0 through 9).
+*/
+#include "libft.h"
 
-
-void	ft_placeholder(t_format *tmp)
+int	ft_isdigit(int c)
 {
-	t_holder	*holder;
-
-	tmp->i++;
-	holder = ft_initialize_holder();
-	ft_parse(tmp, holder);
-	if (holder->conversion)
-	{
-		ft_type_conversion(tmp, holder);
-		tmp->len += write(1, holder->argument, holder->len);
-		free(holder->argument);
-	}
-	free(holder->prefix);
-	free(holder);
+	if (c >= '0' && c <= '9')
+		return (2048);
+	else
+		return (0);
 }

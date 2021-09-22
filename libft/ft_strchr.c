@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_placeholder.c                                   :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avitolin <avitolin@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/22 12:42:17 by avitolin          #+#    #+#             */
-/*   Updated: 2021/09/22 13:30:55 by avitolin         ###   ########.fr       */
+/*   Created: 2021/05/21 18:09:08 by avitolin          #+#    #+#             */
+/*   Updated: 2021/05/21 19:50:12 by avitolin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+/*	The	strchr() function returns a pointer to the first occurrence of the
+**	character c in the string s.
+*/
+#include "libft.h"
 
-
-void	ft_placeholder(t_format *tmp)
+char	*ft_strchr(const char *s, int c)
 {
-	t_holder	*holder;
+	char	*return_str;
 
-	tmp->i++;
-	holder = ft_initialize_holder();
-	ft_parse(tmp, holder);
-	if (holder->conversion)
+	return_str = (char *)s;
+	while (*return_str != c)
 	{
-		ft_type_conversion(tmp, holder);
-		tmp->len += write(1, holder->argument, holder->len);
-		free(holder->argument);
+		if (*return_str == '\0')
+		{
+			return (NULL);
+		}
+		return_str++;
 	}
-	free(holder->prefix);
-	free(holder);
+	return (return_str);
 }

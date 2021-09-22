@@ -6,12 +6,11 @@
 /*   By: avitolin <avitolin@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 20:29:28 by avitolin          #+#    #+#             */
-/*   Updated: 2021/09/23 00:05:53 by avitolin         ###   ########.fr       */
+/*   Updated: 2021/09/23 01:02:18 by avitolin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
-
 
 char	*ft_set_null(t_holder *holder)
 {
@@ -29,7 +28,6 @@ char	*ft_set_null(t_holder *holder)
 		number = ft_strdup("0");
 	return (number);
 }
-
 
 void	ft_convert_p(t_format *fmt, t_holder *holder)
 {

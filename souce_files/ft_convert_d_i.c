@@ -6,7 +6,7 @@
 /*   By: avitolin <avitolin@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 19:47:24 by avitolin          #+#    #+#             */
-/*   Updated: 2021/09/23 00:51:33 by avitolin         ###   ########.fr       */
+/*   Updated: 2021/09/23 01:01:40 by avitolin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,11 @@ static void	ft_convert_d_i_width(t_holder *holder, int sign)
 		{
 			if (sign < 0 || ft_strchr(holder->prefix, ' ') || \
 				ft_strchr(holder->prefix, '+'))
-				ft_fill_left_pad(&holder->argument, holder->padding, holder->width - 1);
+				ft_fill_left_pad(&holder->argument, holder->padding, \
+				holder->width - 1);
 			else
-				ft_fill_left_pad(&holder->argument, holder->padding, holder->width);
+				ft_fill_left_pad(&holder->argument, holder->padding, \
+				holder->width);
 			ft_add_prefix(holder, sign);
 		}
 	}

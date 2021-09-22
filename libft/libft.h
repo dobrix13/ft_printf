@@ -6,7 +6,7 @@
 /*   By: avitolin <avitolin@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 23:01:58 by avitolin          #+#    #+#             */
-/*   Updated: 2021/09/22 22:11:27 by avitolin         ###   ########.fr       */
+/*   Updated: 2021/09/23 01:05:12 by avitolin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-void	*ft_memset (void *s, int c, size_t n);
+void	*ft_memset(void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *d, const void *s, size_t n);
 int		ft_atoi(const char *str);

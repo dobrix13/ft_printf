@@ -6,11 +6,12 @@
 /*   By: avitolin <avitolin@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 20:00:13 by avitolin          #+#    #+#             */
-/*   Updated: 2021/09/23 00:05:53 by avitolin         ###   ########.fr       */
+/*   Updated: 2021/09/23 01:03:27 by avitolin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
+
 /*
 **	recursively convert long to string
 */
@@ -23,6 +24,7 @@ static void	ft_convbase(unsigned long nbr, char *num, char *base, size_t i)
 		ft_convbase((nbr / len_base), num, base, (i - 1));
 	num[i] = base[nbr % len_base];
 }
+
 /*
 **	recursively count long size
 */
@@ -33,6 +35,7 @@ static size_t	ft_countsize(unsigned long n, size_t len_base)
 	else
 		return (1 + ft_countsize(n / len_base, len_base));
 }
+
 /*
 **	converts an unsigned integer into a string, passing it to 
 **	the base given as an argument.

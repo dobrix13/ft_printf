@@ -6,11 +6,11 @@
 /*   By: avitolin <avitolin@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 19:00:21 by avitolin          #+#    #+#             */
-/*   Updated: 2021/09/22 19:05:43 by avitolin         ###   ########.fr       */
+/*   Updated: 2021/09/23 00:05:53 by avitolin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 static void	ft_prefix_ux(t_holder *holder)
 {
@@ -45,7 +45,7 @@ void	ft_add_prefix(t_holder	*holder, int sign)
 		else if (sign == -1)
 			ft_fill_left_pad(&holder->argument, MINUS, len);
 	}
-	else if (holder->conversion == 'x' || h->conversion == 'X' \
+	else if (holder->conversion == 'x' || holder->conversion == 'X' \
 			|| holder->conversion == 'o')
-		ft_prefix_ux(h);
+		ft_prefix_ux(holder);
 }

@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_conversion.c                              :+:      :+:    :+:   */
+/*   ft_placeholder.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avitolin <avitolin@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/22 14:37:28 by avitolin          #+#    #+#             */
-/*   Updated: 2021/09/23 00:03:18 by avitolin         ###   ########.fr       */
+/*   Created: 2021/09/22 12:42:17 by avitolin          #+#    #+#             */
+/*   Updated: 2021/09/23 00:05:53 by avitolin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void	ft_parse_conversion(t_format *fmt, t_holder *holder)
+
+void	ft_placeholder(t_format *tmp)
 {
-	if (!ft_strchr(HOLDER_ALL, fmt->format[fmt->i]) \
-		&& ft_isprint(fmt->format[fmt->i]))
+	t_holder	*holder;
+
+	tmp->i++;
+	holder = ft_initialize_holder();
+	ft_parse(tmp, holder);
+	if (holder->conversion)
 	{
-		holder->conversion = fmt->format[fmt->i];
-		fmt->i++;
+		ft_type_conversion(tmp, holder);
+		tmp->len += write(1, holder->argument, holder->len);
+		free(holder->argument);
 	}
+	free(holder->prefix);
+	free(holder);
 }

@@ -6,11 +6,11 @@
 /*   By: avitolin <avitolin@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 12:30:48 by avitolin          #+#    #+#             */
-/*   Updated: 2021/09/22 13:23:30 by avitolin         ###   ########.fr       */
+/*   Updated: 2021/09/23 00:05:53 by avitolin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "../ft_printf.h"
 
 t_format	*ft_initialize_format(const char *format, va_list ap)
 {

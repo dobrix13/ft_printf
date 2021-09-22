@@ -6,7 +6,7 @@
 /*   By: avitolin <avitolin@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 23:01:58 by avitolin          #+#    #+#             */
-/*   Updated: 2021/06/05 13:45:45 by avitolin         ###   ########.fr       */
+/*   Updated: 2021/09/22 22:11:27 by avitolin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ char	*ft_itoa(int nb);
 char	**ft_split(char const *s, char c);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strndup(const char *s1, size_t n);
 
 /*
 **	bonus part

@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_convert_d_i.c                                   :+:      :+:    :+:   */
+/*   ft_convert_ux.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avitolin <avitolin@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/22 19:47:24 by avitolin          #+#    #+#             */
-/*   Updated: 2021/09/22 20:13:10 by avitolin         ###   ########.fr       */
+/*   Created: 2021/09/22 21:48:52 by avitolin          #+#    #+#             */
+/*   Updated: 2021/09/23 00:05:53 by avitolin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
-void	ft_convert_d_i(t_format *fmt, t_holder *holder)
+void	ft_convert_ux(t_format *fmt, t_holder *holder, char *base)
 {
-	int			sign;
-	long int	num;
+	unsigned int	nbr;
+	char			*number;
 
-	sign = 1;
-	num = (int)va_arg(fmt->ap, int);
-	if (num < 0)
-		sign *= -1;
-	holder->argument = ft_u_itoa_base(sign * num, DECIMAL_BASE);
+	number = NULL;
+	nbr = (unsigned int)(va_arg(fmt->ap, unsigned int));
+	number = ft_u_itoa_base((unsigned long)nbr, base);
+	holder->argument = ft_strdup(number);
+	free(number);
 	if (holder->precision > -1)
 	{
-		if (!holder->precision && num == 0)
+		if (!holder->precision && nbr == 0)
 		{
 			free(holder->argument);
 			holder->argument = ft_strdup("");
@@ -32,6 +32,11 @@ void	ft_convert_d_i(t_format *fmt, t_holder *holder)
 		ft_fill_left_pad(&holder->argument, '0', holder->precision);
 		holder->padding = ' ';
 	}
-	ft_convert_d_i_width(holder, sign);
+	if (nbr)
+		ft_add_prefix(holder, 0);
+	if (!holder->left_justify)
+		ft_fill_left_pad(&holder->argument, holder->padding, holder->width);
+	else
+		ft_fill_right_pad(&holder->argument, ' ', holder->width);
 	holder->len = ft_strlen(holder->argument);
 }

@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_conversion.c                              :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avitolin <avitolin@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/22 14:37:28 by avitolin          #+#    #+#             */
-/*   Updated: 2021/09/23 00:03:18 by avitolin         ###   ########.fr       */
+/*   Created: 2021/09/22 22:08:22 by avitolin          #+#    #+#             */
+/*   Updated: 2021/09/22 22:10:31 by avitolin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "libft.h"
 
-void	ft_parse_conversion(t_format *fmt, t_holder *holder)
+char	*ft_strndup(const char *s1, size_t n)
 {
-	if (!ft_strchr(HOLDER_ALL, fmt->format[fmt->i]) \
-		&& ft_isprint(fmt->format[fmt->i]))
-	{
-		holder->conversion = fmt->format[fmt->i];
-		fmt->i++;
-	}
+	int		len;
+	char	*ptr;
+
+	if (!s1)
+		return (NULL);
+	len = ft_strlen((char *)s1);
+	if ((size_t)len > n)
+		len = n;
+	ptr = malloc((len + 1) * sizeof(char));
+	if (ptr == NULL)
+		return (NULL);
+	ft_memcpy(ptr, s1, len);
+	ptr[len] = '\0';
+	return (ptr);
 }

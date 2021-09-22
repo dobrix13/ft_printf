@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_conversion.c                              :+:      :+:    :+:   */
+/*   ft_vprintf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avitolin <avitolin@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/22 14:37:28 by avitolin          #+#    #+#             */
-/*   Updated: 2021/09/23 00:03:18 by avitolin         ###   ########.fr       */
+/*   Created: 2021/09/15 18:31:32 by avitolin          #+#    #+#             */
+/*   Updated: 2021/09/23 00:05:53 by avitolin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void	ft_parse_conversion(t_format *fmt, t_holder *holder)
+int	ft_vprintf(const char *format, va_list ap)
 {
-	if (!ft_strchr(HOLDER_ALL, fmt->format[fmt->i]) \
-		&& ft_isprint(fmt->format[fmt->i]))
+	t_format	*tmp;
+	int			len;
+
+	tmp = ft_initialize_format(format, ap);
+	if (!tmp)
+		return (0);
+	while (tmp->format[tmp->i])
 	{
-		holder->conversion = fmt->format[fmt->i];
-		fmt->i++;
-	}
+		if (tmp->format[tmp->i] == '%')
+			ft_placeholder(tmp);
+		else
+			tmp->len += write(1, &tmp->format[tmp->i++], 1);
+	}	
+	len = tmp->len;
+	free(tmp);
+	return (len);
 }

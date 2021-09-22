@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_conversion.c                              :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avitolin <avitolin@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/22 14:37:28 by avitolin          #+#    #+#             */
-/*   Updated: 2021/09/23 00:03:18 by avitolin         ###   ########.fr       */
+/*   Created: 2021/05/18 17:07:25 by avitolin          #+#    #+#             */
+/*   Updated: 2021/05/21 19:50:12 by avitolin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+/*	The strlen() function calculates the length of the string pointed to by s,
+**	excluding the terminating null byte ('\0').
+*/
+#include "libft.h"
 
-void	ft_parse_conversion(t_format *fmt, t_holder *holder)
+size_t	ft_strlen(const char *s)
 {
-	if (!ft_strchr(HOLDER_ALL, fmt->format[fmt->i]) \
-		&& ft_isprint(fmt->format[fmt->i]))
-	{
-		holder->conversion = fmt->format[fmt->i];
-		fmt->i++;
-	}
+	int	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }

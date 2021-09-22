@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fill_right_pad.c                                :+:      :+:    :+:   */
+/*   ft_fill_left_pad.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avitolin <avitolin@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/22 18:55:53 by avitolin          #+#    #+#             */
-/*   Updated: 2021/09/22 18:59:46 by avitolin         ###   ########.fr       */
+/*   Created: 2021/09/22 18:46:24 by avitolin          #+#    #+#             */
+/*   Updated: 2021/09/23 00:05:53 by avitolin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
-void	ft_fill_right_pad(char **src, char padding, int width)
+void	ft_fill_left_pad(char **src, char padding, int width)
 {
 	char	*temp;
 	size_t	str_len;
@@ -24,10 +24,10 @@ void	ft_fill_right_pad(char **src, char padding, int width)
 	temp = (char *)malloc(width * sizeof(char));
 	if (!temp)
 		return ;
-	ft_strlcpy(temp, *src, str_len + 1);
 	pad_len = width - str_len;
-	ft_memset(&temp[str_len], padding, pad_len);
-	temp[width] = '\0';
+	ft_memset(temp, padding, pad_len);
+	temp[pad_len] = '\0';
+	ft_strlcat(temp, *src, width + 1);
 	free(*src);
 	*src = temp;
 }

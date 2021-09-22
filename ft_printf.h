@@ -6,7 +6,7 @@
 /*   By: avitolin <avitolin@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 17:55:25 by avitolin          #+#    #+#             */
-/*   Updated: 2021/09/22 20:14:54 by avitolin         ###   ########.fr       */
+/*   Updated: 2021/09/23 00:02:08 by avitolin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,20 +58,46 @@ typedef struct s_holder
 	int		width;
 	int		precision;
 }			t_holder;
-
+/*
+**	print
+*/
+int	ft_printf(const char *format, ...);
 int	ft_vprintf(const char *format, va_list argument_parameter);
+/*
+**	initialize
+*/
 t_format	*ft_initialize_format(const char *format, va_list ap);
 t_holder	*ft_initialize_holder(void);
 void	ft_placeholder(t_format *tmp);
-void	*ft_parse(t_format *fmt, t_holder *holder);
-
 /*
-** type conversion
+**	parser
+*/
+void	*ft_parse(t_format *fmt, t_holder *holder);
+void	ft_parse_width(t_format *fmt, t_holder *holder);
+void	ft_parse_precision(t_format *fmt, t_holder *holder);
+void	ft_parse_flags(t_format *fmt, t_holder *holder);
+void	ft_parse_conversion(t_format *fmt, t_holder *holder);
+/*
+**	type conversion
 */
 void	ft_type_conversion(t_format *fmt, t_holder *holder);
 void	ft_convert_c(t_format *fmt, t_holder *holder);
+void	ft_convert_s(t_format *fmt, t_holder *holder);
+void	ft_convert_p(t_format *fmt, t_holder *holder);
+void	ft_convert_d_i(t_format *fmt, t_holder *holder);
+void	ft_convert_d_i_width(t_holder *holder, int sign);
+void	ft_convert_ux(t_format *fmt, t_holder *holder, char *base);
+void	ft_convert_prct(t_holder *holder);
+//static void	ft_prefix_ux(t_holder *holder);
+void	ft_add_prefix(t_holder	*holder, int sign);
+/*
+**	tools
+*/
 char	*ft_u_itoa_base(unsigned long nbr, char *base);
-static size_t	ft_countsize(unsigned long n, size_t len_base);
-static void		ft_convbase(unsigned long nbr, char *num, char *base, size_t i);
+//static void	ft_convbase(unsigned long nbr, char *num, char *base, size_t i);
+char	*ft_append_chr(char const *s, char const c);
+char	*ft_set_null(t_holder *holder);
+void	ft_fill_left_pad(char **src, char padding, int width);
+void	ft_fill_right_pad(char **src, char padding, int width);
 
 #endif

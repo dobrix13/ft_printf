@@ -6,7 +6,7 @@
 #    By: avitolin <avitolin@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/22 22:27:14 by avitolin          #+#    #+#              #
-#    Updated: 2021/09/22 22:49:09 by avitolin         ###   ########.fr        #
+#    Updated: 2021/09/23 00:53:43 by avitolin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRC := \
 	ft_strndup.c \
+	ft_memcpy.c \
 	ft_isdigit.c \
 	ft_isprint.c \
 	ft_memset.c \

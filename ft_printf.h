@@ -6,17 +6,20 @@
 /*   By: avitolin <avitolin@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 17:55:25 by avitolin          #+#    #+#             */
-/*   Updated: 2021/09/23 00:02:08 by avitolin         ###   ########.fr       */
+/*   Updated: 2021/09/23 00:50:32 by avitolin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 #define FT_PRINTF_H
 
-#include <stdarg.h>
-#include <wchar.h>
+# include <stdarg.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <inttypes.h>
+# include <wchar.h>
 
-#include "../libft/libft.h"
+#include "libft/libft.h"
 
 #define	HOLDER_CONVERSION "cspdiuxX%o"
 #define	HOLDER_ALL "-0# +123456789*"
@@ -85,7 +88,6 @@ void	ft_convert_c(t_format *fmt, t_holder *holder);
 void	ft_convert_s(t_format *fmt, t_holder *holder);
 void	ft_convert_p(t_format *fmt, t_holder *holder);
 void	ft_convert_d_i(t_format *fmt, t_holder *holder);
-void	ft_convert_d_i_width(t_holder *holder, int sign);
 void	ft_convert_ux(t_format *fmt, t_holder *holder, char *base);
 void	ft_convert_prct(t_holder *holder);
 //static void	ft_prefix_ux(t_holder *holder);

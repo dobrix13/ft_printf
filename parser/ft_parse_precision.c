@@ -6,11 +6,11 @@
 /*   By: avitolin <avitolin@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:34:48 by avitolin          #+#    #+#             */
-/*   Updated: 2021/09/22 14:36:34 by avitolin         ###   ########.fr       */
+/*   Updated: 2021/09/22 18:32:16 by avitolin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 void	ft_parse_precision(t_format *fmt, t_holder *holder)
 {

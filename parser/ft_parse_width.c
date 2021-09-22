@@ -6,11 +6,11 @@
 /*   By: avitolin <avitolin@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:31:29 by avitolin          #+#    #+#             */
-/*   Updated: 2021/09/22 14:34:05 by avitolin         ###   ########.fr       */
+/*   Updated: 2021/09/22 14:48:07 by avitolin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 void	ft_parse_width(t_format *fmt, t_holder *holder)
 {

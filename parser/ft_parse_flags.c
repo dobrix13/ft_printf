@@ -6,11 +6,11 @@
 /*   By: avitolin <avitolin@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:30:19 by avitolin          #+#    #+#             */
-/*   Updated: 2021/09/22 14:31:56 by avitolin         ###   ########.fr       */
+/*   Updated: 2021/09/22 14:48:07 by avitolin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 void	ft_parse_flags(t_format *fmt, t_holder *holder)
 {
@@ -25,7 +25,7 @@ void	ft_parse_flags(t_format *fmt, t_holder *holder)
 		if (ft_strchr(HOLDER_PREFIX, fmt->format[fmt->i]))
 		{
 			temp = holder->prefix;
-			holder->prefix = ft_appendchr(temp, fmt->format[fmt->i]);
+			holder->prefix = ft_append_chr(temp, fmt->format[fmt->i]);
 			free(temp);
 		}
 		if (fmt->format[fmt->i] == HOLDER_PAD)

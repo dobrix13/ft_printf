@@ -6,7 +6,7 @@
 /*   By: avitolin <avitolin@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 21:36:27 by avitolin          #+#    #+#             */
-/*   Updated: 2021/09/23 00:05:53 by avitolin         ###   ########.fr       */
+/*   Updated: 2021/09/28 00:38:19 by avitolin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 void	ft_convert_s(t_format *fmt, t_holder *holder)
 {
 	char	*string;
-	int		len;
+	size_t	len;
 	char	*temp;
 
 	string = ft_strdup(va_arg(fmt->ap, char *));
 	if (!string)
 		string = ft_strdup("(null)");
-	len = (int)ft_strlen(string);
+	len = (size_t)ft_strlen(string);
 	holder->argument = (char *)malloc((len + 1) * sizeof(char));
 	if (!holder->argument)
 		return ;

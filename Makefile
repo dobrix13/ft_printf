@@ -6,7 +6,7 @@
 #    By: avitolin <avitolin@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/22 12:29:47 by avitolin          #+#    #+#              #
-#    Updated: 2021/09/22 23:21:18 by avitolin         ###   ########.fr        #
+#    Updated: 2021/09/24 13:29:19 by avitolin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ LIB			= ar -rcs
 LIB1		= ranlib
 RM			= /bin/rm -f
 
-SRC_DIR		= ./souce_files
+SRC_DIR		= ./source_files
 SRCS		= $(SRC_DIR)/ft_type_conversion.c \
 			$(SRC_DIR)/ft_printf.c \
 			$(SRC_DIR)/ft_vprintf.c \

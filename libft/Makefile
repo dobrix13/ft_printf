@@ -6,7 +6,7 @@
 #    By: avitolin <avitolin@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/22 22:27:14 by avitolin          #+#    #+#              #
-#    Updated: 2021/09/23 00:53:43 by avitolin         ###   ########.fr        #
+#    Updated: 2021/09/28 14:11:22 by avitolin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,8 @@ SRC := \
 	ft_strlcat.c \
 	ft_strlcpy.c \
 	ft_strlen.c \
+	ft_calloc.c\
+	ft_bzero.c\
 
 OBJS :=$(SRC:.c=.o)
 
